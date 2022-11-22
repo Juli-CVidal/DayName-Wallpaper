@@ -2,7 +2,7 @@
 @import url("https://www.behance.net/gallery/33704618/ANURATI-Free-Font/modules/268990691");
 
 :root {
-  --main-color: #1d7413;
+  --main-color: rgb(29, 116, 19);
 }
 
 html,
@@ -38,8 +38,39 @@ body {
   font-family: "Anurati", sans-serif;
   font-size: 60px;
   letter-spacing: 25px;
-  text-shadow: 0 0 5px var(--main-color), 0 0 10px var(--main-color),
-    0 0 20px var(--main-color), 0 0 40px var(--main-color);
+  /*COMMENT THE LINE BELOW IF YOU WANT THE GLOWING ANIMATION, LEAVE UNCOMMENTED IF YOU WANT THE STATIC GLOW*/
+  /* text-shadow: 0 0 5px var(--main-color), 0 0 10px var(--main-color),
+    0 0 20px var(--main-color), 0 0 40px var(--main-color);  */
+
+  /*COMMENT THE LINE BELOW IF YOU WANT TO DISABLE THE GLOWING ANIMATION AND USE THE STATIC GLOW*/
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff,
+      0 0 2rem var(--main-color), 0 0 4rem var(--main-color),
+      0 0 6rem var(--main-color), 0 0 8rem var(--main-color),
+      0 0 10rem var(--main-color);
+
+    box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff,
+      0 0 2rem var(--ne--main-color), inset 0 0 2rem var(--ne--main-color),
+      0 0 4rem var(--ne--main-color), inset 0 0 4rem var(--ne--main-color);
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+    box-shadow: none;
+  }
 }
 
 #calendar-day {
