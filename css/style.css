@@ -61,8 +61,8 @@ body {
       0 0 10rem var(--main-color);
 
     box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff,
-      0 0 2rem var(--ne--main-color), inset 0 0 2rem var(--ne--main-color),
-      0 0 4rem var(--ne--main-color), inset 0 0 4rem var(--ne--main-color);
+      0 0 2rem var(--main-color), inset 0 0 2rem var(--main-color),
+      0 0 4rem var(--main-color), inset 0 0 4rem var(--main-color);
   }
 
   20%,
