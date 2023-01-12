@@ -12,7 +12,7 @@
 * If you want to use the static glow, uncomment the line what contains `text-shadow: 0 0 5px ...` (currently is the line nº42) and comment the other line.
 * If you want to use the glowing effect, uncomment the line what contains `animation: flicker 1.5s ...` (currently is the line nº46 and comment the other line.
  
- ## Preview of the wallpaper: 
+ ## Here's the [preview](https://juli-cvidal.github.io/Personalized-DayName-Wallpaper/): 
 <div>
   <img src="https://github.com/Juli-CVidal/Personalized-DayName-Wallpaper/blob/master/Background%20Preview.png"/>
  </div>
