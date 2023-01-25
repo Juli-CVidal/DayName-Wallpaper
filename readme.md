@@ -11,8 +11,8 @@
   * replace `--main-color` in the css file
 
 * Added option to use neon effect in the day name
-  * If you want to use the static glow, uncomment the line what contains `text-shadow: 0 0 5px ...` (currently is the line nº42) and comment the other line.
-  * If you want to use the glowing effect, uncomment the line what contains `animation: flicker 1.5s ...` (currently is the line nº46 and comment the other line.
+  * If you want to use the static glow, uncomment the line what contains `text-shadow: 0 0 5px ...` (currently is the line nº44) and comment the other line.
+  * If you want to use the glowing effect, uncomment the line what contains `animation: flicker 1.5s ...` (currently is the line nº48) and comment the other line.
  
 * The option to use automatic colors has been added 
   * the last three scripts, `color-thief`, `tinycolor` and `auto-select-color`, must be uncommented
