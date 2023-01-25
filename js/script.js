@@ -1,59 +1,45 @@
-let dayName;
-let calendarDay;
-let hour;
-let date;
-const minuteToMils = 60000;
-const dayNames = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+let calendarDay, weekDay, date;
+let clockInterval, currentTime;
 
-const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+const HOUR_OPTIONS = { hour: "numeric", minute: "numeric", hour12: false };
+const WEEK_DAY_OPTIONS = { weekday: "long" };
+const CALENDAR_DAY_OPTIONS = { year: "numeric", month: "long", day: "numeric" };
+const ONE_MINUTE = 60_000;
 
-const getTexts = (date) => {
-  return {
-    name: dayNames[date.getDay()],
+function updateDay() {
+  calendarDay = new Intl.DateTimeFormat("en-US", CALENDAR_DAY_OPTIONS).format(
+    date
+  );
+  document.getElementById("calendar-day").innerText = calendarDay;
 
-    calendar: `${date.getDate()} ${monthNames[date.getMonth()]}, ${date.getFullYear()}`,
+  weekDay = new Intl.DateTimeFormat("en-US", WEEK_DAY_OPTIONS).format(date);
+  document.getElementById("day-name").innerText = weekDay;
+}
 
-    time: `${date.getHours()}:${String(date.getMinutes()).padStart(2, 0)}`,
-  };
-};
+function calendarClock() {
+  date = new Date();
+  currentTime = new Intl.DateTimeFormat("en-US", HOUR_OPTIONS).format(date);
+  document.getElementById("hour").innerText = currentTime;
 
-const setData = (date) => {
-  const { name, calendar, time } = getTexts(date);
-//   console.log(`name: ${name}, calendar: ${calendar}, time: ${time}`);
-  dayName.innerText = name;
-  calendarDay.innerText = calendar;
-  hour.innerText = time;
-};
+  if (!calendarDay || currentTime == "00:00") {
+    updateDay();
+  }
+}
 
-const init = () => {
-  dayName = document.getElementById("day-name");
-  calendarDay = document.getElementById("calendar-day");
-  hour = document.getElementById("hour");
-  setData(new Date());
-  setInterval(() => {
-    setData(new Date());
-  }, minuteToMils);
-};
+function checkInterval() {
+  date = new Date();
 
-window.onload = init();
+  const newTime = new Intl.DateTimeFormat("en-US", HOUR_OPTIONS).format(date);
+  if (!currentTime) {
+    currentTime = newTime;
+    calendarClock();
+  }
+  if (currentTime != newTime) {
+    console.log("new minute", currentTime);
+    clearInterval(clockInterval);
+    clockInterval = setInterval(calendarClock, ONE_MINUTE);
+    calendarClock();
+  }
+}
+
+clockInterval = setInterval(checkInterval, 1000);
