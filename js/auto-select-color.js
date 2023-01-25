@@ -1,6 +1,6 @@
 let palette;
 const img = new Image();
-img.src = "../bg/Background.png";
+img.src = "./bg/Background.png";
 
 function setPalette() {
   const colorThief = new ColorThief();
@@ -28,21 +28,18 @@ function changeColors() {
 }
 
 function fetchBackground() {
-  fetch("../bg/Background.png")
+  fetch(img.src)
     .then((response) => response.blob())
     .then((blob) => {
       const img = new Image();
       img.src = URL.createObjectURL(blob);
       img.onload = () => {
         setPalette(img);
+
         changeColors();
         URL.revokeObjectURL(img.src);
       };
     });
 }
 
-function init() {
-  fetchBackground();
-}
-
-window.onload = init;
+fetchBackground();

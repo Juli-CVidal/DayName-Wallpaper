@@ -39,6 +39,7 @@ body {
   font-family: "Anurati", sans-serif;
   font-size: 60px;
   letter-spacing: 25px;
+  
   /*COMMENT THE LINE BELOW IF YOU WANT THE GLOWING ANIMATION, LEAVE UNCOMMENTED IF YOU WANT THE STATIC GLOW*/
   text-shadow: 0 0 5px var(--main-color), 0 0 10px var(--main-color),
     0 0 20px var(--main-color), 0 0 40px var(--main-color); 
